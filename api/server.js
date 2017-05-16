@@ -12,7 +12,7 @@ mongoose.Promise = global.Promise;
 const db = mongoose.connect('mongodb://localhost/caloriesapp');
 
 // Other variables
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 80;
 const config = require('./config');
 
 // Set key from config
