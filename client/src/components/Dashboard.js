@@ -24,7 +24,7 @@ class Dashboard extends Component {
 		const { user_role, user_id } = this.props;
 
         if(parseInt(user_role, 10) < 3)
-            axios.get(`http://localhost:3000/api/users/${user_id}`)
+            axios.get(`./api/users/${user_id}`)
                 .then(res => {
                     if(res.data.success){
                         this.setState({
@@ -33,7 +33,7 @@ class Dashboard extends Component {
                     }
                 })
 
-		axios.get(`http://localhost:3000/api/users/role/${user_role}`)
+		axios.get(`./api/users/role/${user_role}`)
 			.then(res => {
 				if(res.data.success){
 
@@ -50,7 +50,7 @@ class Dashboard extends Component {
 	}
 
 	handleDelete(user_id){
-		axios.delete(`http://localhost:3000/api/users/${user_id}`)
+		axios.delete(`./api/users/${user_id}`)
 			.then(res => {
 				this.getUsers();
 			});

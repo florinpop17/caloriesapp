@@ -32,7 +32,7 @@ class Register extends Component{
 		const { user_id } = this.props;
 
 		if(user_id) {
-			axios.get(`http://localhost:3000/api/meals/by_user/${user_id}`)
+			axios.get(`./api/meals/by_user/${user_id}`)
 			.then(res => {
 
 				if(res.data.success) {
@@ -50,7 +50,7 @@ class Register extends Component{
 	}
 
 	handleDelete(meal_id) {
-		axios.delete(`http://localhost:3000/api/meals/${meal_id}`)
+		axios.delete(`./api/meals/${meal_id}`)
 		.then(res => {
 
 			if(res.data.success){

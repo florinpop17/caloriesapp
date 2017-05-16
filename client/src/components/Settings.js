@@ -19,7 +19,7 @@ class Settings extends Component {
 		if(max_calories_allowed.value && max_calories_allowed.value !== max_calories) {
 			max_calories_allowed = max_calories_allowed.value;
 
-			axios.patch(`http://localhost:3000/api/users/${user_id}`, { max_calories_allowed })
+			axios.patch(`./api/users/${user_id}`, { max_calories_allowed })
 				.then(res => {
 					setMaxCalories(max_calories_allowed);
 					this.setState({ successMessage: 'Calories ammount changed successfully.' });

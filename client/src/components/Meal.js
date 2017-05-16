@@ -38,7 +38,7 @@ class Meal extends Component{
 
 		if(errors.length === 0){
 			if(meal_id) {
-				axios.patch(`http://localhost:3000/api/meals/${meal_id}`, { text, calories, date })
+				axios.patch(`./api/meals/${meal_id}`, { text, calories, date })
 					.then(res => {
 						if(res.data.success){
 							this.setState({ success: 'Meal was edited successfully.' });
@@ -52,7 +52,7 @@ class Meal extends Component{
 						}
 					})
 			} else {
-				axios.post('http://localhost:3000/api/meals', { text, calories, date, user_id })
+				axios.post('./api/meals', { text, calories, date, user_id })
 				.then(res => {
 					if(res.data.success){
 						this.refs.text.value = '';
@@ -83,7 +83,7 @@ class Meal extends Component{
 		const { meal_id } = this.props;
 
 		if(meal_id) {
-			axios.get(`http://localhost:3000/api/meals/${meal_id}`)
+			axios.get(`./api/meals/${meal_id}`)
 			.then(res => {
 				if(res.data.success){
 					this.refs.text.value = res.data.meal.text;

@@ -48,10 +48,10 @@ class Register extends Component{
 		if(!validator.equals(password, passwordTwo)) errors.push('The confirmation password does not match.')
 
 		if(errors.length === 0){
-			axios.post('http://localhost:3000/api/users', { email, password })
+			axios.post('./api/users', { email, password })
 			.then(res => {
 				if(res.data.success){
-					axios.post('http://localhost:3000/api/auth', { email, password })
+					axios.post('./api/auth', { email, password })
 					.then(res => {
 						if(res.data.success){
 							const { user_id, max_calories_allowed, user_role, token } = res.data;

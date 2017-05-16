@@ -29,7 +29,7 @@ class LogIn extends Component{
 		if(validator.isEmpty(password)) errors.push('Please provide a password.');
 
 		if(errors.length === 0){
-			axios.post('http://localhost:3000/api/auth', { email, password })
+			axios.post('./api/auth', { email, password })
 				.then(res => {
 					if(res.data.success){
 						const { user_id, max_calories_allowed, user_role, token } = res.data;

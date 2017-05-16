@@ -49,7 +49,7 @@ class App extends Component {
     checkToken() {
         const { token } = this.state;
 
-        axios.post('http://localhost:3000/api/checkToken', { token })
+        axios.post('./api/checkToken', { token })
             .then(res => {
                 if(res.data.success){
                     this.setState({ isAuth: true });
@@ -77,7 +77,7 @@ class App extends Component {
     }
 
     resetUser(user_id) {
-		axios.get(`http://localhost:3000/api/users/${user_id}`)
+		axios.get(`./api/users/${user_id}`)
 			.then(res => {
 				if(res.data.success){
 					console.log(res.data);

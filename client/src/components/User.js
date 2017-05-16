@@ -26,7 +26,7 @@ class User extends Component {
 	componentWillMount() {
 		const { user_to_edit_id } = this.props;
 
-		axios.get(`http://localhost:3000/api/users/${user_to_edit_id}`)
+		axios.get(`./api/users/${user_to_edit_id}`)
 			.then(res => {
 				if(res.data.success){
 					this.refs.email.value = res.data.user.email;
@@ -41,7 +41,7 @@ class User extends Component {
 	getMeals() {
 		const { user_to_edit_id } = this.props;
 
-		axios.get(`http://localhost:3000/api/meals/by_user/${user_to_edit_id}`)
+		axios.get(`./api/meals/by_user/${user_to_edit_id}`)
 			.then(res => {
 
 				if(res.data.success) {
@@ -58,7 +58,7 @@ class User extends Component {
 	}
 
 	handleDelete(meal_id) {
-		axios.delete(`http://localhost:3000/api/meals/${meal_id}`)
+		axios.delete(`./api/meals/${meal_id}`)
 		.then(res => {
 
 			if(res.data.success){
@@ -108,7 +108,7 @@ class User extends Component {
 
 			if(password) updatedUser.password = password;
 
-			axios.patch(`http://localhost:3000/api/users/${user_to_edit_id}`, updatedUser)
+			axios.patch(`./api/users/${user_to_edit_id}`, updatedUser)
 				.then(res => {
 					if(res.data.success){
 						if(this.props.user_id === user_to_edit_id){
