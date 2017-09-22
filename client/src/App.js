@@ -165,14 +165,14 @@ class App extends Component {
                                 <Route path="/meal" render={() => {
                                     return isAuth ? <Meal user_id={user_id} meal_id={meal_id}/> : <Redirect to="/login" />
                                 }} />
-								<Route path="/user" render={() => {
-									if(isAuth && user_to_edit_id) return <User user_id={user_id} resetUser={this.resetUser} user_to_edit_id={user_to_edit_id} user_role={user_role} handleMealEdit={this.onHandleMealEdit} />
-									if(isAuth) return <Redirect to="/meals" />
-									return <Redirect to="/login" />
-								}} />
-								<Route path="/dashboard" render={() => {
-									return isAuth ? <Dashboard user_id={user_id} user_role={user_role} userEdit={this.onHandleUserEdit} /> : <Redirect to="/login" />
-								}} />
+				<Route path="/user" render={() => {
+					if(isAuth && user_to_edit_id) return <User user_id={user_id} resetUser={this.resetUser} user_to_edit_id={user_to_edit_id} user_role={user_role} handleMealEdit={this.onHandleMealEdit} />
+					if(isAuth) return <Redirect to="/meals" />
+					return <Redirect to="/login" />
+				}} />
+				<Route path="/dashboard" render={() => {
+					return isAuth ? <Dashboard user_id={user_id} user_role={user_role} userEdit={this.onHandleUserEdit} /> : <Redirect to="/login" />
+				}} />
                                 <Route render={() => (<h3 className="text-center">Page Not Found. 404</h3>)} />
                             </Switch>
                         </div>
